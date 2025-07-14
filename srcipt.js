@@ -23,8 +23,6 @@
     }
   });
 
-
-import { auth } from './firebase-config.js';
 // Firebase config (from your project)
 const firebaseConfig = {
   apiKey: "AIzaSyBvbpCK8RRYfONv9zDqZIp7-5yRKSukjtw",
