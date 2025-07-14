@@ -24,6 +24,7 @@
   });
 
 // Firebase config (from your project)
+// ✅ Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyBvbpCK8RRYfONv9zDqZIp7-5yRKSukjtw",
   authDomain: "notes-app-0077.firebaseapp.com",
@@ -33,13 +34,12 @@ const firebaseConfig = {
   appId: "1:594137491291:web:1350fe9b037366ac135c7e"
 };
 
-// Initialize Firebase
+// ✅ Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-// Login function
-// Make this function global
+// ✅ MAKE THIS GLOBAL
 window.signInWithGoogle = function () {
   auth.signInWithPopup(provider)
     .then((result) => {
@@ -51,6 +51,7 @@ window.signInWithGoogle = function () {
       alert("❌ Login failed");
     });
 };
+
 
 // Detect auth state (optional)
 auth.onAuthStateChanged((user) => {
