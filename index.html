@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartNotes - Class 9–12 Notes</title>
+  <style>
+:root {
+  --bg: #f4f4f5;          /* light warm gray */
+  --text: #1e293b;
+  --primary: #475569;
+  --accent: #94a3b8;
+  --hover: #334155;
+  --button-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg: #121417;          /* true dark gray */
+  --text: #e2e8f0;
+  --primary: #64748b;
+  --accent: #1e293b;
+  --hover: #475569;
+  --button-text: #ffffff;
+}
+
+
+
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      background-color: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    header h1 {
+      color: var(--primary);
+      font-size: 24px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .hero button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: var(--primary);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero button:hover {
+  background-color: var(--hover);
+}
+
+    .class-selector {
+      background-color: var(--secondary);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .class-selector h3 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .classes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .class-button {
+      background-color: var(--bg);
+      color: var(--primary);
+      border: 2px solid #bfdbfe;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .class-button:hover {
+      background-color: #eff6ff;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+
+    .features {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .features h3 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    .features li {
+      margin: 12px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #eee;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .class-button {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+    }
+    .features a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.features a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>SmartNotes</h1>
+    <div>
+      <a href="#" style="margin-right: 16px; font-size: 14px; color: var(--text);">Login</a>
+      <button id="toggle-dark" style="font-size: 14px; padding: 6px 12px;">🌙</button>
+    </div>
+  </header>
+
+<h1>SmartNotes</h1>
+  <p>Login to continue</p>
+
+  <button onclick="signInWithGoogle()" style="
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  ">
+    Sign in with Google
+  </button>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Ace Your Exams with Smart Notes</h2>
+    <p>CBSE Class 9–12 Notes, Organized and Easy to Study — All in One Place.</p>
+    <button onclick="document.getElementById('class-section').scrollIntoView({ behavior: 'smooth' });">
+      📚 Start Studying
+    </button>
+  </section>
+
+  <!-- Class Section -->
+  <section class="class-selector" id="class-section">
+    <h3>Choose Your Class</h3>
+    <div class="classes">
+      <a class="class-button" href="class9.html">Class 9</a>
+      <a class="class-button" href="class10.html">Class 10</a>
+      <a class="class-button" href="class11.html">Class 11</a>
+      <a class="class-button" href="class12.html">Class 12</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h3>Why Use SmartNotes?</h3>
+    <ul>
+      <li>✅ Subject-wise Organized Notes</li>
+      <li>✅ Easy to Read, View, and Download</li>
+      <li>✅ 100% Free, No Ads</li>
+    </ul>
+  </section>
+<!-- About Section -->
+<section class="features" id="about-section" style="background-color: var(--secondary);">
+  <h3>About SmartNotes</h3>
+  <p style="max-width: 600px; margin: 0 auto; font-size: 18px;">
+    SmartNotes is a free educational resource for CBSE students in classes 9 to 12. We provide clear, organized, and high-quality notes to help you study faster and score higher — no distractions, no ads.
+  </p>
+</section>
+<!-- Contact Section -->
+<section class="features" id="contact-section">
+  <h3>Contact Us</h3>
+  <p style="font-size: 18px;">
+    Have a question or want to suggest improvements?
+  </p>
+  <p style="font-size: 18px;">
+    📧 Email us at <a href="mailto:smartnotes@example.com" style="color: var(--primary); text-decoration: underline;">smartnotes@example.com</a>
+  </p>
+</section>
+
+
+<!-- Quick Links Section -->
+<section class="features" style="background-color: var(--secondary);">
+  <h3>Quick Links</h3>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding-top: 20px;">
+    
+    <!-- Class 9 -->
+    <div>
+      <h4 style="color: var(--primary);">Class 9</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="class9-math.html">Math</a></li>
+        <li><a href="class9-science.html">Science</a></li>
+        <li><a href="class9-english.html">English</a></li>
+        <li><a href="class9-sst.html">Social Science</a></li>
+      </ul>
+    </div>
+
+    <!-- Class 10 -->
+    <div>
+      <h4 style="color: var(--primary);">Class 10</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="class10-math.html">Math</a></li>
+        <li><a href="class10-science.html">Science</a></li>
+        <li><a href="class10-english.html">English</a></li>
+        <li><a href="class10-sst.html">Social Science</a></li>
+      </ul>
+    </div>
+
+    <!-- Class 11 -->
+    <div>
+      <h4 style="color: var(--primary);">Class 11</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="class11-physics.html">Physics</a></li>
+        <li><a href="class11-chemistry.html">Chemistry</a></li>
+        <li><a href="class11-math.html">Math</a></li>
+        <li><a href="class11-biology.html">Biology</a></li>
+      </ul>
+    </div>
+
+    <!-- Class 12 -->
+    <div>
+      <h4 style="color: var(--primary);">Class 12</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="class12-physics.html">Physics</a></li>
+        <li><a href="class12-chemistry.html">Chemistry</a></li>
+        <li><a href="class12-math.html">Math</a></li>
+        <li><a href="class12-biology.html">Biology</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Footer -->
+<footer>
+  © 2025 SmartNotes · 
+  <a href="#about-section">About</a> · 
+  <a href="#contact-section">Contact</a>
+</footer>
+<script src="srcipt.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+
+  <!-- JavaScript -->
+<script>
+
+</script>
+
+</body>
+</html>
