@@ -1,7 +1,5 @@
-// 🌗 Dark Mode Toggle
+// 🌙 Dark Mode Toggle
 const toggleBtn = document.getElementById('toggle-dark');
-
-// Load from localStorage
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
   document.documentElement.setAttribute('data-theme', 'dark');
@@ -10,7 +8,6 @@ if (savedTheme === 'dark') {
   toggleBtn.textContent = '🌙';
 }
 
-// Toggle theme
 toggleBtn.addEventListener('click', () => {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   if (isDark) {
@@ -24,7 +21,7 @@ toggleBtn.addEventListener('click', () => {
   }
 });
 
-// 🔐 Firebase Auth
+// 🔐 Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyBvbpCK8RRYfONv9zDqZIp7-5yRKSukjtw",
   authDomain: "notes-app-0077.firebaseapp.com",
@@ -38,22 +35,15 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
+// ✅ Make signInWithGoogle global
 window.signInWithGoogle = function () {
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
-      alert(`✅ Logged in as: ${user.displayName}`);
+      alert(`✅ Logged in as ${user.displayName}`);
     })
     .catch((error) => {
       console.error("Login error:", error.message);
-      alert("❌ Login failed: " + error.message);
+      alert("❌ Login failed");
     });
 };
-
-// Optional: Detect login state
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("✅ Logged in:", user.displayName);
-    // Optionally redirect here
-  }
-});
